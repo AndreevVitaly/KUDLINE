@@ -1,0 +1,2 @@
+import {Link} from 'react-router-dom'; import {Seo} from '../components/common/Seo'
+export function NotFoundPage(){return <section className="not-found"><Seo title="Страница не найдена — КУДЛАЙН" description="Запрошенная страница не найдена."/><div className="shell"><span>404</span><h1>Страница не найдена</h1><p>Возможно, адрес изменился или страница была удалена.</p><Link className="button" to="/">Вернуться на главную</Link></div></section>}

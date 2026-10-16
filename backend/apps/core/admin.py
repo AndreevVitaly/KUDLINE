@@ -1,0 +1,7 @@
+from django.contrib import admin
+from .models import SiteContent
+@admin.register(SiteContent)
+class SiteContentAdmin(admin.ModelAdmin):
+    list_display = ("key", "title", "updated_at")
+    search_fields = ("key", "title", "body")
+
