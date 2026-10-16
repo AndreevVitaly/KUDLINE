@@ -22,6 +22,8 @@ class Inquiry(models.Model):
     description = models.TextField("Описание задачи")
     attachment = models.FileField("Вложение", upload_to=inquiry_upload_path, validators=[validate_attachment], blank=True)
     status = models.CharField("Статус", max_length=20, choices=Status.choices, default=Status.NEW)
+    client = models.ForeignKey("clients.Client", on_delete=models.PROTECT, related_name="inquiries", blank=True, null=True, verbose_name="Клиент")
+    order = models.ForeignKey("clients.Order", on_delete=models.PROTECT, related_name="inquiries", blank=True, null=True, verbose_name="Заказ")
     created_at = models.DateTimeField(auto_now_add=True)
     consent = models.BooleanField("Согласие на обработку данных", default=False)
     class Meta:

@@ -43,3 +43,7 @@
 .button:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
 .production .section-no,.dark-link{color:var(--accent-dark)}
 
+/* Stage 2.1: tighter inner pages and no public CMS placeholders. */
+.page-hero~.section{padding-top:100px;padding-bottom:100px}
+.projects:has(.projects-empty){display:none}
+

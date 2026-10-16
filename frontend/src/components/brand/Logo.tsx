@@ -16,10 +16,7 @@ export function Logo({variant = 'horizontal', theme = 'light', className = ''}: 
       {variant === 'mark' ? (
         <img src={markSrc} alt="ООО «КУДЛАЙН»" />
       ) : (
-        <>
-          <img className="brand-logo__horizontal" src={horizontalSrc} alt="ООО «КУДЛАЙН»" />
-          <img className="brand-logo__mark-only" src={markSrc} alt="ООО «КУДЛАЙН»" />
-        </>
+        <img className="brand-logo__horizontal" src={horizontalSrc} alt="ООО «КУДЛАЙН»" />
       )}
     </Link>
   )

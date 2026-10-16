@@ -9,9 +9,9 @@ import {ContactsPage} from './pages/ContactsPage'
 import {HomeOverviewPage} from './pages/HomeOverviewPage'
 import {LegalContentPage} from './pages/LegalContentPage'
 import {NotFoundPage} from './pages/NotFoundPage'
-import {ProductionPage} from './pages/ProductionPage'
+import {ProductionRefinedPage} from './pages/ProductionRefinedPage'
 import {ProjectDetailPage} from './pages/ProjectDetailPage'
-import {ProjectsPage} from './pages/ProjectsPage'
+import {ProjectsRefinedPage} from './pages/ProjectsRefinedPage'
 import {RequestPage} from './pages/RequestPage'
 import {ServiceDetailPage} from './pages/ServiceDetailPage'
 import {ServicesPage} from './pages/ServicesPage'
@@ -27,8 +27,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/about" element={<AboutPage/>}/>
           <Route path="/services" element={<ServicesPage/>}/>
           <Route path="/services/:slug" element={<ServiceDetailPage/>}/>
-          <Route path="/production" element={<ProductionPage/>}/>
-          <Route path="/projects" element={<ProjectsPage/>}/>
+          <Route path="/production" element={<ProductionRefinedPage/>}/>
+          <Route path="/projects" element={<ProjectsRefinedPage/>}/>
           <Route path="/projects/:slug" element={<ProjectDetailPage/>}/>
           <Route path="/advantages" element={<AdvantagesPage/>}/>
           <Route path="/contacts" element={<ContactsPage/>}/>
