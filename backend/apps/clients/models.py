@@ -1,5 +1,6 @@
 import uuid
 from decimal import Decimal
+from django.conf import settings
 
 from django.core.validators import MinValueValidator
 from django.db import models, transaction
@@ -147,6 +148,7 @@ class Order(models.Model):
     amount = models.DecimalField("Сумма", max_digits=14, decimal_places=2, blank=True, null=True, validators=[MinValueValidator(Decimal("0"))])
     currency = models.CharField("Валюта", max_length=3, default="RUB")
     internal_notes = models.TextField("Внутренние заметки", blank=True)
+    responsible = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, related_name="responsible_orders", blank=True, null=True, verbose_name="Ответственный")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -169,3 +171,12 @@ class Order(models.Model):
 
     def __str__(self):
         return f"{self.number} — {self.title}"
+
+class OrderStatusHistory(models.Model):
+    id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
+    order=models.ForeignKey(Order,on_delete=models.PROTECT,related_name="status_history")
+    previous_status=models.CharField(max_length=24,choices=Order.Status.choices)
+    new_status=models.CharField(max_length=24,choices=Order.Status.choices)
+    changed_by=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT,related_name="order_status_changes")
+    created_at=models.DateTimeField(auto_now_add=True)
+    class Meta: ordering=("-created_at",)

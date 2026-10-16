@@ -13,7 +13,7 @@ INSTALLED_APPS = [
     "django.contrib.admin", "django.contrib.auth", "django.contrib.contenttypes",
     "django.contrib.sessions", "django.contrib.messages", "django.contrib.staticfiles",
     "corsheaders", "rest_framework", "django_filters",
-    "apps.core", "apps.company", "apps.projects", "apps.inquiries", "apps.clients",
+    "apps.core", "apps.company", "apps.projects", "apps.inquiries", "apps.clients", "apps.workspace",
 ]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware", "corsheaders.middleware.CorsMiddleware",

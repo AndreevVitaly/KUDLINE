@@ -1,6 +1,7 @@
 import uuid
 from datetime import date
 from pathlib import Path
+from django.conf import settings
 from django.db import models
 from .validators import validate_attachment
 
@@ -24,6 +25,7 @@ class Inquiry(models.Model):
     status = models.CharField("Статус", max_length=20, choices=Status.choices, default=Status.NEW)
     client = models.ForeignKey("clients.Client", on_delete=models.PROTECT, related_name="inquiries", blank=True, null=True, verbose_name="Клиент")
     order = models.ForeignKey("clients.Order", on_delete=models.PROTECT, related_name="inquiries", blank=True, null=True, verbose_name="Заказ")
+    responsible = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, related_name="responsible_inquiries", blank=True, null=True, verbose_name="Ответственный")
     created_at = models.DateTimeField(auto_now_add=True)
     consent = models.BooleanField("Согласие на обработку данных", default=False)
     class Meta:
