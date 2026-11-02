@@ -3,7 +3,9 @@ import {readFileSync} from 'node:fs'
 
 const main = readFileSync(new URL('../src/main.tsx', import.meta.url), 'utf8')
 assert.match(main, /\/workspace\/\*/)
+assert.match(main, /\/client\/\*/)
 const header = readFileSync(new URL('../src/components/Header.tsx', import.meta.url), 'utf8')
+const footer = readFileSync(new URL('../src/components/Footer.tsx', import.meta.url), 'utf8')
 const home = readFileSync(new URL('../src/pages/HomeOverviewPage.tsx', import.meta.url), 'utf8')
 
 for (const route of ['/', '/about', '/services', '/production', '/projects', '/advantages', '/contacts', '/request']) {
@@ -14,5 +16,11 @@ for (const route of ['/about', '/services', '/production', '/projects', '/advant
 }
 assert.ok(home.includes('to="/request"'), 'Hero request CTA is missing')
 assert.ok(home.includes('to="/projects"'), 'Hero projects CTA is missing')
+assert.ok(header.includes('to="/workspace/"'), 'Desktop and mobile workspace entry is missing')
+assert.ok(header.includes('to="/client/"'), 'Desktop and mobile client portal entry is missing')
+assert.ok(header.includes('Клиентам'), 'Client portal entry label is missing')
+assert.ok(header.includes('Сотрудникам'), 'Workspace entry label is missing')
+assert.ok(footer.includes('to="/workspace/"'), 'Footer workspace entry is missing')
+assert.ok(footer.includes('to="/client/"'), 'Footer client portal entry is missing')
 assert.ok(main.includes('path="*"'), 'NotFound route is missing')
 console.log('Frontend route, navigation and CTA checks passed')

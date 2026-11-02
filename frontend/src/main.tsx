@@ -17,12 +17,14 @@ import {ServiceDetailPage} from './pages/ServiceDetailPage'
 import {ServicesPage} from './pages/ServicesPage'
 import './styles/global.css'
 import {WorkspaceApp} from './workspace/WorkspaceApp'
+import {ClientPortalApp} from './client/ClientPortalApp'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <AppErrorBoundary>
       <BrowserRouter>
         <Routes>
+        <Route path="/client/*" element={<ClientPortalApp/>}/>
         <Route path="/workspace/*" element={<WorkspaceApp/>}/>
           <Route element={<Layout/>}>
           <Route path="/" element={<HomeOverviewPage/>}/>
