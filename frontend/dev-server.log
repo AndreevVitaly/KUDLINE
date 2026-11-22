@@ -1,0 +1,10 @@
+
+> kudline-frontend@0.1.0 dev
+> vite --host 127.0.0.1
+
+
+  VITE v7.3.7  ready in 2714 ms
+
+  ➜  Local:   http://127.0.0.1:5173/
+18:53:30 [vite] (client) hmr update /src/pages/HomeOverviewPage.tsx
+18:55:16 [vite] (client) hmr update /src/pages/HomeOverviewPage.tsx
