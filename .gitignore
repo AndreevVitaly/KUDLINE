@@ -11,4 +11,8 @@ frontend/dist/
 .run/
 .idea/
 .vscode/
+.npm-cache/
+.pip-cache/
+*.log
+.env.production
 
